@@ -6,9 +6,8 @@
 
     <groupId>de.dein-plugin</groupId>
     <artifactId>ArenaAPI</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <build>
-        <directory>C:\Users\Jonas\Documents\Bewerbung\${project.version}\</directory>
         <finalName>${project.name}</finalName>
 
         <plugins>
