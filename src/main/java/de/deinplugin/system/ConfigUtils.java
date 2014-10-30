@@ -97,7 +97,7 @@ public class ConfigUtils {
         return new Region(loadLocation(config, path + ".min"), loadLocation(config, path + ".max"));
     }
     public static Location loadLocation(Configuration config, String path){
-        return new Location(Bukkit.getWorld(config.getString(path + ".world")), config.getDouble(path + ".x"), config.getDouble(path + ".y"), config.getDouble(path + ".z"), (float) config.get(path + ".yaw"), (Float) config.get(path + ".pitch"));
+        return new Location(Bukkit.getWorld(config.getString(path + ".world")), config.getDouble(path + ".x"), config.getDouble(path + ".y"), config.getDouble(path + ".z"));
     }
     public static void saveRegion(Region r, Configuration config, String path){
         config.set(path, "Region");
