@@ -22,7 +22,7 @@ public class UserCommands implements CommandExecutor {
     private String prefix = "§7[§6Arena§7] §6";
     @Override
     public boolean onCommand(final CommandSender sender, Command command, String label, final String[] args) {
-        if(sender.hasPermission("Arena.user")){
+        if(!sender.hasPermission("Arena.user")){
             sender.sendMessage("§cDu hast keine Berechtigung für diesen Befehl!");
             return false;
         }

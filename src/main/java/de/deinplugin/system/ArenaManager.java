@@ -22,6 +22,7 @@ public class ArenaManager {
     public static Arena getArena(Player p){
         for(Arena a :arenas.values()){
             for(Player player : a.getPlayers()){
+
                 if(player.getName().equalsIgnoreCase(p.getName())) return a;
             }
         }

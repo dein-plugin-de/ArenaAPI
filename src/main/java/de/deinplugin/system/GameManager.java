@@ -13,13 +13,13 @@ public class GameManager {
     private static Map<String, Game> games = new LinkedHashMap<>();
     private static Map<String, Plugin> plugins = new LinkedHashMap<>();
     public static void registerGame(Game game, Plugin owner){
-        games.put(game.getName(), game);
-        plugins.put(game.getName(), owner);
-        System.out.println("Registered Game: " + game.getName());
+        games.put(game.getGameName(), game);
+        plugins.put(game.getGameName(), owner);
+        System.out.println("Registered Game: " + game.getGameName());
     }
     public static Plugin getPlugin(Game game) throws GameNotRegisteredException {
-        if(plugins.containsKey(game.getName())){
-            return plugins.get(game.getName());
+        if(plugins.containsKey(game.getGameName())){
+            return plugins.get(game.getGameName());
         }else{
             throw new GameNotRegisteredException();
         }

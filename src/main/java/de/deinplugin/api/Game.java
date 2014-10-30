@@ -26,7 +26,7 @@ public interface Game {
     /**
      * @return Gibt den Namen des Spiels zurück. Wird für Nachrichten benötigt.
      */
-    public String getName();
+    public String getGameName();
 
 
 }

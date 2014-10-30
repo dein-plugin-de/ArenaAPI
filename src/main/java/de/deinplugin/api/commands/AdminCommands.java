@@ -26,7 +26,7 @@ public class AdminCommands implements CommandExecutor {
     private String prefix = "§7[§6ArenaAPI§7] §6";
     @Override
     public boolean onCommand(final CommandSender sender, Command command, String label, final String[] args) {
-        if(sender.hasPermission("Arena.cmd")){
+        if(!sender.hasPermission("Arena.cmd")){
             sender.sendMessage("§cDu hast keine Berechtigung für diesen Befehl!");
             return false;
         }
