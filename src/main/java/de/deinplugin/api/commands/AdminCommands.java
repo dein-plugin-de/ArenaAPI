@@ -108,7 +108,7 @@ public class AdminCommands implements CommandExecutor {
         sender.sendMessage(prefix + "/" + root + " restart <arena>");
         sender.sendMessage(prefix + "/" + root + " pos1");
         sender.sendMessage(prefix + "/" + root + " pos2");
-        sender.sendMessage(prefix + "/" + root + " setSign");
+        sender.sendMessage(prefix + "/" + root + " setSign <arena>");
         sender.sendMessage(prefix + "/" + root + " help");
     }
     public static HashMap<Player, Arena> signchooser = new HashMap<>();

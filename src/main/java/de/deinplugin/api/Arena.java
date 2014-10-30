@@ -56,6 +56,8 @@ public abstract class Arena {
         return sign;
     }
     public void setSign(Sign s){
+        System.out.println(s.getLocation().toString());
+
         sign = s;
     }
     public void broadcastMessage(String msg){
@@ -84,6 +86,7 @@ public abstract class Arena {
             getSign().setLine(1, "§7" + getName());
             getSign().setLine(2, "" + ChatColor.DARK_BLUE + player.size() + "§7/" + ChatColor.DARK_BLUE  +getMaxPlayers());
             getSign().setLine(3, "§i§6" + getState().toString());
+            getSign().update();
         }
     }
     public void removePlayer(Player p){
@@ -123,6 +126,7 @@ public abstract class Arena {
                 getSign().setLine(1, "§7" + getName());
                 getSign().setLine(2, "" + ChatColor.DARK_BLUE + player.size() + "§7/" + ChatColor.DARK_BLUE  +getMaxPlayers());
                 getSign().setLine(3, "§i§6" + getState().toString());
+                getSign().update();
             }
             getGame().onStart(this);
         }
@@ -137,6 +141,7 @@ public abstract class Arena {
                 getSign().setLine(1, "§7" + getName());
                 getSign().setLine(2, "" + ChatColor.DARK_BLUE +  "---§7/" + ChatColor.DARK_BLUE  +"---");
                 getSign().setLine(3, "§8" + getState().toString());
+                getSign().update();
             }
         }
         for(Player p : player){

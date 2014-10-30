@@ -6,7 +6,7 @@
 
     <groupId>de.dein-plugin</groupId>
     <artifactId>ArenaAPI</artifactId>
-    <version>0.6.1</version>
+    <version>0.7</version>
 
     <organization>
         <name>JonasFranz Developing / dein-plugin.de</name>
