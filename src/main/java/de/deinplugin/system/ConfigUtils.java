@@ -22,7 +22,7 @@ public class ConfigUtils {
         config.set(arena.getName() + ".min", arena.getMinPlayers());
         config.set(arena.getName() + ".max", arena.getMaxPlayers());
         config.set(arena.getName() + ".hasSign", arena.getSign() != null);
-        if(arena.getSign() != null) saveLocation(arena.getSign().getLocation(), config, arena.getName() + "sign");
+        if(arena.getSign() != null) saveLocation(arena.getSign().getLocation(), config, arena.getName() + ".sign");
         saveRegion(arena.getRegion(), config, arena.getName()+".region");
         for(String name : arena.savedVars.keySet()){
             Object o = arena.savedVars.get(name);

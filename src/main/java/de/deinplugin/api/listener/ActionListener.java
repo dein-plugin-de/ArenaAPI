@@ -3,6 +3,7 @@ package de.deinplugin.api.listener;
 import de.deinplugin.api.Arena;
 import de.deinplugin.api.commands.AdminCommands;
 import de.deinplugin.system.ArenaManager;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.event.EventHandler;
@@ -26,7 +27,7 @@ public class ActionListener implements Listener{
         if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
             if(e.getClickedBlock().getType() == Material.WALL_SIGN){
                 Sign s = (Sign) e.getClickedBlock().getState();
-                if(s.getLine(0).equalsIgnoreCase("§7[ARENA]")){
+                if(ChatColor.stripColor(s.getLine(0)).equalsIgnoreCase("[Arena]")){
                     Arena a = ArenaManager.arenas.get(s.getLine(1));
                     if(a.getState() == Arena.State.LOBBY){
                         a.addPlayer(e.getPlayer());

@@ -82,8 +82,8 @@ public abstract class Arena {
         player.add(p);
         broadcastMessage(getGame().getPrefix() + p.getName() + " hat die Arena betreten.");
         if(getSign() != null){
-            getSign().setLine(0, "§l§7[Arena]");
-            getSign().setLine(1, "§7" + getName());
+            getSign().setLine(0, "§l§8[Arena]");
+            getSign().setLine(1, "§8" + getName());
             getSign().setLine(2, "" + ChatColor.DARK_BLUE + player.size() + "§7/" + ChatColor.DARK_BLUE  +getMaxPlayers());
             getSign().setLine(3, "§i§6" + getState().toString());
             getSign().update();
@@ -96,8 +96,8 @@ public abstract class Arena {
         p.teleport(joinloc.get(p));
         if(state == State.RESTARTING || state == State.OFFLINE) return;
         if(getSign() != null){
-            getSign().setLine(0, "§l§7[Arena]");
-            getSign().setLine(1, "§7" + getName());
+            getSign().setLine(0, "§l§8[Arena]");
+            getSign().setLine(1, "§8" + getName());
             getSign().setLine(2, "" + ChatColor.DARK_BLUE + player.size() + "§7/" + ChatColor.DARK_BLUE  +getMaxPlayers());
             getSign().setLine(3, "§i§6" + getState().toString());
         }
@@ -122,8 +122,8 @@ public abstract class Arena {
         if(!e.isCancelled()){
             state = State.LOBBY;
             if(getSign() != null){
-                getSign().setLine(0, "§l§7[Arena]");
-                getSign().setLine(1, "§7" + getName());
+                getSign().setLine(0, "§l§8[Arena]");
+                getSign().setLine(1, "§8" + getName());
                 getSign().setLine(2, "" + ChatColor.DARK_BLUE + player.size() + "§7/" + ChatColor.DARK_BLUE  +getMaxPlayers());
                 getSign().setLine(3, "§i§6" + getState().toString());
                 getSign().update();
@@ -137,8 +137,8 @@ public abstract class Arena {
         if(reason != ArenaStopEvent.Reason.RESTART){
             state = State.OFFLINE;
             if(getSign() != null){
-                getSign().setLine(0, "§l§7[Arena]");
-                getSign().setLine(1, "§7" + getName());
+                getSign().setLine(0, "§l§8[Arena]");
+                getSign().setLine(1, "§8" + getName());
                 getSign().setLine(2, "" + ChatColor.DARK_BLUE +  "---§7/" + ChatColor.DARK_BLUE  +"---");
                 getSign().setLine(3, "§8" + getState().toString());
                 getSign().update();
