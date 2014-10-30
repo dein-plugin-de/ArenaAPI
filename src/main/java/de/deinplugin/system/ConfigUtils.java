@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class ConfigUtils {
     public static void saveArena(Arena arena, Configuration config){
-        config.set(arena.getName() + ".game", arena.getGame().getName());
+        config.set(arena.getName() + ".game", arena.getGame().getGameName());
         config.set(arena.getName() + ".min", arena.getMinPlayers());
         config.set(arena.getName() + ".max", arena.getMaxPlayers());
         config.set(arena.getName() + ".hasSign", arena.getSign() != null);
