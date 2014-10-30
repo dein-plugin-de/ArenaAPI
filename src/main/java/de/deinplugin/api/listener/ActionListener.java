@@ -1,6 +1,7 @@
 package de.deinplugin.api.listener;
 
 import de.deinplugin.api.Arena;
+import de.deinplugin.api.commands.AdminCommands;
 import de.deinplugin.system.ArenaManager;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
@@ -31,6 +32,19 @@ public class ActionListener implements Listener{
                         a.addPlayer(e.getPlayer());
                     }
                 }
+            }
+        }
+    }
+    @EventHandler
+    public void onChoos(PlayerInteractEvent e){
+        if(e.getAction() == Action.RIGHT_CLICK_BLOCK && AdminCommands.signchooser.containsKey(e.getPlayer())){
+            if(e.getClickedBlock().getType() == Material.WALL_SIGN){
+                Sign s = (Sign) e.getClickedBlock().getState();
+                ArenaManager.arenas.get(AdminCommands.signchooser.get(e.getPlayer()).getName()).setSign(s);
+                e.getPlayer().sendMessage("§aDas Schild wurde gesetzt.");
+                AdminCommands.signchooser.remove(e.getPlayer());
+            }else{
+                e.getPlayer().sendMessage("§cSie müssen ein Schild an einer Wand auswählen.");
             }
         }
     }

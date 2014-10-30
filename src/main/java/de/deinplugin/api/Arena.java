@@ -4,6 +4,7 @@ import de.deinplugin.api.events.ArenaJoinEvent;
 import de.deinplugin.api.events.ArenaQuitEvent;
 import de.deinplugin.api.events.ArenaStartEvent;
 import de.deinplugin.api.events.ArenaStopEvent;
+import de.deinplugin.system.ArenaManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -20,12 +21,27 @@ public abstract class Arena {
      * @return Das Spiel, welches in der Arena gespielt werden soll.
      */
     public abstract Game getGame();
+    private int min, max;
+    public  int getMaxPlayers(){
+        return max;
+    }
 
-    public abstract int getMaxPlayers();
-
-    public abstract int getMinPlayers();
-
-    public abstract Region getRegion();
+    public  int getMinPlayers(){
+        return min;
+    }
+    public void setMinPlayers(int nr){
+        min = nr;
+    }
+    public void setMaxPlayers(int nr){
+        max = nr;
+    }
+    private Region region;
+    public Region getRegion(){
+        return region;
+    }
+    public void setRegion(Region rg){
+        region = rg;
+    }
 
     /**
      * @return Der Name der Arena/Map. Wird ggf. auf dem Schild angezeigt.
@@ -35,7 +51,13 @@ public abstract class Arena {
     /**
      * @return Das Schild, welches aktualisiert werden soll. Wenn "null" zurückgegeben wird, wird kein Schild aktualisiert.
      */
-    public abstract Sign getSign();
+    private Sign sign;
+    public  Sign getSign(){
+        return sign;
+    }
+    public void setSign(Sign s){
+        sign = s;
+    }
     public void broadcastMessage(String msg){
         for(Player p : player){
             p.sendMessage(msg);
@@ -49,6 +71,7 @@ public abstract class Arena {
         return player;
     }
     public void addPlayer(Player p){
+        if(ArenaManager.getArena(p) != null) ArenaManager.getArena(p).removePlayer(p);
         Location join = p.getLocation();
         ArenaJoinEvent e = new ArenaJoinEvent(this, p);
         Bukkit.getPluginManager().callEvent(e);

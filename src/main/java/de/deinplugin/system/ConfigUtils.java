@@ -50,20 +50,7 @@ public class ConfigUtils {
                     }
                 }
 
-                @Override
-                public int getMaxPlayers() {
-                    return (int) config.get(name + ".max");
-                }
 
-                @Override
-                public int getMinPlayers() {
-                    return (int) config.get(name + ".min");
-                }
-
-                @Override
-                public Region getRegion() {
-                    return loadRegion(config, name + ".region");
-                }
 
                 @Override
                 public String getName() {
@@ -83,6 +70,9 @@ public class ConfigUtils {
                     }
                 }
             };
+            arena.setMaxPlayers((int) config.get(name + ".max"));
+            arena.setMinPlayers((int) config.get(name + ".min"));
+            arena.setRegion(loadRegion(config, name + ".region"));
             for(String key : config.getConfigurationSection(name + ".vars").getKeys(false)){
                 Object o = config.get(name + ".vars." + key);
                 System.out.println("Loading " + key);
