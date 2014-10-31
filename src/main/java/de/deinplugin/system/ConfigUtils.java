@@ -73,20 +73,24 @@ public class ConfigUtils {
             arena.setMaxPlayers((int) config.get(name + ".max"));
             arena.setMinPlayers((int) config.get(name + ".min"));
             arena.setRegion(loadRegion(config, name + ".region"));
-            for(String key : config.getConfigurationSection(name + ".vars").getKeys(false)){
-                Object o = config.get(name + ".vars." + key);
-                System.out.println("Loading " + key);
-                if(o instanceof String){
-                    String s = (String) o;
-                    if(s.equalsIgnoreCase("Location")){
-                        arena.savedVars.put(key, loadLocation(config, name + ".vars." + key));
-                    }else if(s.equalsIgnoreCase("Region")){
-                        arena.savedVars.put(key, loadRegion(config, name + ".vars." + key));
-                    }else{
+            if(config.getConfigurationSection(name + ".vars" ) != null) {
+
+
+                for (String key : config.getConfigurationSection(name + ".vars").getKeys(false)) {
+                    Object o = config.get(name + ".vars." + key);
+                    System.out.println("Loading " + key);
+                    if (o instanceof String) {
+                        String s = (String) o;
+                        if (s.equalsIgnoreCase("Location")) {
+                            arena.savedVars.put(key, loadLocation(config, name + ".vars." + key));
+                        } else if (s.equalsIgnoreCase("Region")) {
+                            arena.savedVars.put(key, loadRegion(config, name + ".vars." + key));
+                        } else {
+                            arena.savedVars.put(key, o);
+                        }
+                    } else {
                         arena.savedVars.put(key, o);
                     }
-                }else{
-                    arena.savedVars.put(key, o);
                 }
             }
             arenas.add(arena);
