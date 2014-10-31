@@ -152,6 +152,7 @@ public abstract class Arena {
     public State getState(){
         return state;
     }
+    public void setInGame(){state = State.INGAME;}
     /**
      * Diese Daten werden in der Config gespeichert und automatisch wieder hergestellt. Locations und Regions können auch gespeichert werden.
      */
