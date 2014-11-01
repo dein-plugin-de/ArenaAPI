@@ -12,23 +12,26 @@ import java.util.List;
  */
 public class ArenaManager {
     public static HashMap<String, Arena> arenas = new HashMap<>();
-    public static List<Player> getPlayersInArenas(){
+
+    public static List<Player> getPlayersInArenas() {
         List<Player> players = new LinkedList<>();
-        for(Arena a : arenas.values()){
+        for (Arena a : arenas.values()) {
             players.addAll(a.getPlayers());
         }
         return players;
     }
-    public static Arena getArena(Player p){
-        for(Arena a :arenas.values()){
-            for(Player player : a.getPlayers()){
 
-                if(player.getName().equalsIgnoreCase(p.getName())) return a;
+    public static Arena getArena(Player p) {
+        for (Arena a : arenas.values()) {
+            for (Player player : a.getPlayers()) {
+
+                if (player.getName().equalsIgnoreCase(p.getName())) return a;
             }
         }
         return null;
     }
-    public static void registerArena(Arena a){
+
+    public static void registerArena(Arena a) {
         arenas.put(a.getName(), a);
     }
 }

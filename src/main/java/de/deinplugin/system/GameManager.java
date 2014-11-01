@@ -12,22 +12,25 @@ import java.util.Map;
 public class GameManager {
     private static Map<String, Game> games = new LinkedHashMap<>();
     private static Map<String, Plugin> plugins = new LinkedHashMap<>();
-    public static void registerGame(Game game, Plugin owner){
+
+    public static void registerGame(Game game, Plugin owner) {
         games.put(game.getGameName(), game);
         plugins.put(game.getGameName(), owner);
         System.out.println("Registered Game: " + game.getGameName());
     }
+
     public static Plugin getPlugin(Game game) throws GameNotRegisteredException {
-        if(plugins.containsKey(game.getGameName())){
+        if (plugins.containsKey(game.getGameName())) {
             return plugins.get(game.getGameName());
-        }else{
+        } else {
             throw new GameNotRegisteredException();
         }
     }
+
     public static Game getGame(String game) throws GameNotRegisteredException {
-        if(games.containsKey(game)){
+        if (games.containsKey(game)) {
             return games.get(game);
-        }else{
+        } else {
             throw new GameNotRegisteredException();
         }
     }
@@ -35,5 +38,6 @@ public class GameManager {
     /**
      * Wird ausgeführt, wenn es kein registriertes Game gibt, nach dem gesucht wird.
      */
-    public static class GameNotRegisteredException extends Exception{}
+    public static class GameNotRegisteredException extends Exception {
+    }
 }
