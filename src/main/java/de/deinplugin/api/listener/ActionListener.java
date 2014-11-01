@@ -28,7 +28,7 @@ public class ActionListener implements Listener{
             if(e.getClickedBlock().getType() == Material.WALL_SIGN){
                 Sign s = (Sign) e.getClickedBlock().getState();
                 if(ChatColor.stripColor(s.getLine(0)).equalsIgnoreCase("[Arena]")){
-                    Arena a = ArenaManager.arenas.get(s.getLine(1));
+                    Arena a = ArenaManager.arenas.get(ChatColor.stripColor(s.getLine(1)));
                     if(a.getState() == Arena.State.LOBBY){
                         a.addPlayer(e.getPlayer());
                     }
