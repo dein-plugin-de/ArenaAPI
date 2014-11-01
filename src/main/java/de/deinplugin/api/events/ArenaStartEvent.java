@@ -29,7 +29,7 @@ public class ArenaStartEvent extends Event implements Cancellable{
     }
     public static  HandlerList getHandlersList() {
         return handlers;
-    }s
+    }
 
     @Override
     public boolean isCancelled() {
