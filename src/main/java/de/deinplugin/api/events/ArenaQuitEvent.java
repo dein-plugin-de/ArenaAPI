@@ -26,7 +26,7 @@ public class ArenaQuitEvent extends Event{
     public HandlerList getHandlers() {
         return handlers;
     }
-    public static  HandlerList getHandlersList() {
+    public static  HandlerList getHandlerList() {
         return handlers;
     }
 

@@ -27,7 +27,7 @@ public class ArenaStartEvent extends Event implements Cancellable{
     public HandlerList getHandlers() {
         return handlers;
     }
-    public static  HandlerList getHandlersList() {
+    public static  HandlerList getHandlerList() {
         return handlers;
     }
 
