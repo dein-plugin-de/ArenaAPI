@@ -43,7 +43,7 @@ public class ConfigUtils {
                 @Override
                 public Game getGame(){
                     try {
-                        return GameManager.getGame(name);
+                        return GameManager.getGame(config.getString(name + ".game"));
                     } catch (GameManager.GameNotRegisteredException e) {
                         e.printStackTrace();
                         return null;
