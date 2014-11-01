@@ -24,8 +24,10 @@ public class ArenaJoinEvent extends Event implements Cancellable{
     public Player getPlayer(){
         return player;
     }
-    @Override
     public HandlerList getHandlers() {
+        return handlers;
+    }
+    public static  HandlerList getHandlersList() {
         return handlers;
     }
 

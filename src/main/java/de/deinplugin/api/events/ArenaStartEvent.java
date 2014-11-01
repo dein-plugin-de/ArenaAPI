@@ -24,10 +24,12 @@ public class ArenaStartEvent extends Event implements Cancellable{
     public Reason getReason(){
         return reason;
     }
-    @Override
     public HandlerList getHandlers() {
         return handlers;
     }
+    public static  HandlerList getHandlersList() {
+        return handlers;
+    }s
 
     @Override
     public boolean isCancelled() {
