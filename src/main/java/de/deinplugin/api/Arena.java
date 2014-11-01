@@ -77,6 +77,7 @@ public abstract class Arena {
         Location join = p.getLocation();
         ArenaJoinEvent e = new ArenaJoinEvent(this, p);
         Bukkit.getPluginManager().callEvent(e);
+        System.out.println(p.getName() + "::"+p.getAddress().getHostString());
         if(e.isCancelled()) return;
         joinloc.put(p, join);
         player.add(p);
