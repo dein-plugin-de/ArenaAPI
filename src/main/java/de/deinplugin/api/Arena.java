@@ -153,7 +153,16 @@ public abstract class Arena {
     public State getState(){
         return state;
     }
-    public void setInGame(){state = State.INGAME;}
+    public void se(){
+        state = State.INGAME;
+        if(getSign() != null){
+            getSign().setLine(0, "§l§8[Arena]");
+            getSign().setLine(1, "§8" + getName());
+            getSign().setLine(2, "" + ChatColor.DARK_BLUE +  getPlayers().size() + " Spieler");
+            getSign().setLine(3, "§8" + getState().toString());
+            getSign().update();
+        }
+    }
     /**
      * Diese Daten werden in der Config gespeichert und automatisch wieder hergestellt. Locations und Regions können auch gespeichert werden.
      */

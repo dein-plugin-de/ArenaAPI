@@ -108,7 +108,7 @@ public class ConfigUtils {
 
     public static void saveRegion(Region r, Configuration config, String path) {
         config.set(path + ".region", true);
-        saveLocation(new Location(r.world, r.minX, r.minY, r.minZ), config, path + ".min");
+        saveLocation(new Location(r.world,  r.minX, r.minY, r.minZ), config, path + ".min");
         saveLocation(new Location(r.world, r.maxX, r.maxY, r.maxZ), config, path + ".max");
     }
 

@@ -1,6 +1,7 @@
 package de.deinplugin.system;
 
 import de.deinplugin.api.Arena;
+import de.deinplugin.api.events.ArenaStopEvent;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -32,6 +33,11 @@ public class ArenaManager {
     }
 
     public static void registerArena(Arena a) {
+        a.stop(ArenaStopEvent.Reason.BY_PLUGIN);
+        for(Player p : a.getPlayers()){
+            a.removePlayer(p);
+        }
+
         arenas.put(a.getName(), a);
     }
 }
