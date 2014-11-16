@@ -153,7 +153,7 @@ public abstract class Arena {
     public State getState(){
         return state;
     }
-    public void se(){
+    public void setInGame(){
         state = State.INGAME;
         if(getSign() != null){
             getSign().setLine(0, "§l§8[Arena]");
